@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fitnes.AvtorizUser"
+              NavigationPage.HasNavigationBar="False">
+
+    <StackLayout x:Name="MainStackLayout">
+        <Grid>
+            <Image x:Name="image1" 
+                   Margin="0,20,0,0" 
+                   HorizontalOptions="Center"
+                   HeightRequest="175"/>
+
+            <ImageButton 
+                Margin="0,20,20,0"
+                x:Name="buttonAdminAvtoriz"
+                Clicked="AdminButton_Clicked"
+                HeightRequest="60" 
+                BackgroundColor="Transparent" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start"/>
+        </Grid>
+
+
+        <Label Text="Авторизация" FontSize="30" Margin="0,0,0,0"  HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Black" />
+
+
+        <Label Text="Введите ваш номер телефона" FontSize="20" Margin="0,20,0,0"  HorizontalTextAlignment="Center"/>
+        <Entry  x:Name="nameInput1" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center"/>
+
+        <Label Text="Введите пароль" FontSize="20" Padding="30,0,30,0"  HorizontalTextAlignment="Center"/>
+        <Entry x:Name="nameInput2" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center"/>
+
+        <Button x:Name="AvtorizButton"  
+                Text="Войти" FontSize="16" TextColor ="White" 
+                Clicked="AvtorizButton_Clicked"
+                Background="red" 
+                HorizontalOptions="Center" WidthRequest="250" 
+                Margin="0,15,0,0"
+                BorderWidth="2"
+                BorderColor="#A30202"/>
+
+
+        <Button x:Name="adminButton"  
+                Text="Нет аккаунта? Создайте его!" FontSize="16" 
+                Background="transparent"
+                HorizontalOptions="Center" WidthRequest="300" HeightRequest="45"
+                Margin="0,60,0,0"
+                BorderColor="transparent"
+                Clicked="OpenReg_Clicked"
+                FontAttributes="Bold"/>
+
+    </StackLayout>
+
+</ContentPage>

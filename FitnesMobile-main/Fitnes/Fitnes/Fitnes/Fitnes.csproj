@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="image\adminLogo.png" />
+    <None Remove="image\arrow.png" />
+    <None Remove="image\icon.png" />
+    <None Remove="image\iconTaxi.png" />
+    <None Remove="image\logo.png" />
+    <None Remove="image\reg.png" />
+    <None Remove="image\voditelLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="image\adminLogo.png" />
+    <EmbeddedResource Include="image\arrow.png" />
+    <EmbeddedResource Include="image\icon.png" />
+    <EmbeddedResource Include="image\iconTaxi.png" />
+    <EmbeddedResource Include="image\logo.png" />
+    <EmbeddedResource Include="image\reg.png" />
+    <EmbeddedResource Include="image\voditelLogo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.2.6" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="admin\AvtorizAdmin.xaml.cs">
+      <DependentUpon>AvtorizAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="user\RegUser.xaml.cs">
+      <DependentUpon>RegUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="user\AvtorizUser.xaml.cs">
+      <DependentUpon>AvtorizUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="user\MainUser.xaml.cs">
+      <DependentUpon>MainUser.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="user\MainUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
