@@ -7,16 +7,32 @@
 
 
 
-    <ContentPage Title="Tab 1" >
+    <ContentPage Title="Tab 1" />
+
+
+    <ContentPage Title="Tab 2" />
+
+    <ContentPage Title="Tab 3" >
         <StackLayout>
-            <Label>fddfesfefwefwefwe</Label>
+            <Image x:Name="imageAvatar" 
+                   Margin="0,30,0,20" 
+                   HorizontalOptions="Center"
+                   HeightRequest="175"/>
+
+
+            <Label x:Name="Username" 
+                   HorizontalOptions="Center"
+                   FontSize="28"
+                   TextColor="Black"
+                   FormattedText="Bold">User</Label>
+
+            <Label x:Name="informUser" />
+
+
+
         </StackLayout>
-     </ContentPage>
-    
- <ContentPage Title="Tab 2" />
-    
-<ContentPage Title="Tab 3" />
-    
-    
-    
+    </ContentPage>
+
+
+
 </TabbedPage>

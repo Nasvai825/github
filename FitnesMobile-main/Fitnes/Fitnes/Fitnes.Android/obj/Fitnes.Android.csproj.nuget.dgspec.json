@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj": {}
+    "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj": {
+    "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
         "projectName": "Fitnes.Android",
-        "projectPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
-        "packagesPath": "C:\\Users\\Savan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Savan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "monoandroid13.0": {
             "projectReferences": {
-              "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
-                "projectPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj"
+              "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj"
               }
             }
           }
@@ -54,20 +54,20 @@
         }
       }
     },
-    "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
+    "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj",
         "projectName": "Fitnes",
-        "projectPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj",
-        "packagesPath": "C:\\Users\\Savan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Savan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -125,7 +125,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

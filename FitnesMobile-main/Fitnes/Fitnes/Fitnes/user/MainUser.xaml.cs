@@ -15,6 +15,8 @@ namespace Fitnes.user
         public MainUser()
         {
             InitializeComponent();
+
+            imageAvatar.Source = ImageSource.FromResource("Fitnes.image.avatar.png");
         }
     }
 }

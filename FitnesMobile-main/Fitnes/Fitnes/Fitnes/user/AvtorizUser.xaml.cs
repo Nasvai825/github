@@ -19,8 +19,7 @@ namespace Fitnes
         {
             InitializeComponent();
 
-            image1.Source = ImageSource.FromResource("Fitnes.image.icon.png");
-
+            image1.Source = ImageSource.FromResource("Fitnes.image.logo.png");
             buttonAdminAvtoriz.Source = ImageSource.FromResource("Fitnes.image.adminLogo.png");
         }
 

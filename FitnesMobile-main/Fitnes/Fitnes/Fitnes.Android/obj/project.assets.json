@@ -3616,24 +3616,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Savan\\.nuget\\packages\\": {},
+    "C:\\Users\\User\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
       "projectName": "Fitnes.Android",
-      "projectPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
-      "packagesPath": "C:\\Users\\Savan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes.Android\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\Fitnes.Android.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Savan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3647,8 +3647,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
-              "projectPath": "C:\\Users\\Savan\\Desktop\\git\\FitnesMobile\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj"
+            "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\github\\FitnesMobile-main\\Fitnes\\Fitnes\\Fitnes\\Fitnes.csproj"
             }
           }
         }
@@ -3660,6 +3660,14 @@
           "Xamarin.Essentials": {
             "target": "Package",
             "version": "[1.7.0, )"
+          },
+          "Xamarin.Essentials": {
+            "target": "Package",
+            "version": "[1.7.0, )"
+          },
+          "Xamarin.Forms": {
+            "target": "Package",
+            "version": "[5.0.0.2196, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
