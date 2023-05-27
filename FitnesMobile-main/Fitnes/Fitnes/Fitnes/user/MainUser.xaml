@@ -4,24 +4,47 @@
              x:Class="Fitnes.user.MainUser"
             NavigationPage.HasNavigationBar="False">
 
+    <ContentPage Title="Main" >
+        <StackLayout>
 
-<ContentPage Title="Tab 1" />
+        </StackLayout>
+    </ContentPage>
 
-<ContentPage Title="Tab 2" />
+    <ContentPage Title="Raspisanie" >
+        <StackLayout>
 
-<ContentPage Title="Tab 3" >
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title ="Kart" >
+        <StackLayout>
+            
+        </StackLayout>
+    </ContentPage>
+
+<ContentPage Title="User" >
      <StackLayout>
          <ScrollView>
-             <StackLayout>
-                <Image x:Name="imageAvatar" 
-                       Margin="0,30,0,20" 
-                       HorizontalOptions="Center"
-                       HeightRequest="155"/>
+                <StackLayout>
+                    <Grid>
+                        <Image x:Name="imageAvatar" 
+                           Margin="0,30,0,20" 
+                           HorizontalOptions="Center"
+                           HeightRequest="155"/>
 
+                        <Label x:Name="balance" 
+                            Text="Баланс: "
+                            FontSize="16"
+                            Margin="0,15,0,0" 
+                            HorizontalOptions="Center"
+                            HeightRequest="175"
+                            TextColor="Black"
+                            />
+                    </Grid>
 
-                <Label x:Name="Username" 
+                    <Label x:Name="Username" 
                        HorizontalOptions="Center"
-                       FontSize="28"
+                       FontSize="25"
                        TextColor="Black"
                        FormattedText="Bold">
                 </Label>
@@ -48,7 +71,7 @@
                         WidthRequest="250"
                         Clicked="Update_Clicked" />
                  
-                <Label  Text="Teлефон::"
+                <Label  Text="Teлефон:"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     Margin="15"

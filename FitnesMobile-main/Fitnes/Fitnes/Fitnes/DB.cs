@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TaxoparkMobile
+namespace Fitnes
 {
     internal class DB
     {
