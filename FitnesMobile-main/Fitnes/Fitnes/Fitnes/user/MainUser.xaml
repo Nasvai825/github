@@ -3,35 +3,143 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fitnes.user.MainUser"
             NavigationPage.HasNavigationBar="False">
-  <!--Pages can be added as references or inline-->
+
+
+<ContentPage Title="Tab 1" />
+
+<ContentPage Title="Tab 2" />
+
+<ContentPage Title="Tab 3" >
+     <StackLayout>
+         <ScrollView>
+             <StackLayout>
+                <Image x:Name="imageAvatar" 
+                       Margin="0,30,0,20" 
+                       HorizontalOptions="Center"
+                       HeightRequest="155"/>
+
+
+                <Label x:Name="Username" 
+                       HorizontalOptions="Center"
+                       FontSize="28"
+                       TextColor="Black"
+                       FormattedText="Bold">
+                </Label>
+            
+                <Label  Text="О себе:"
+                        HorizontalOptions="Center"
+                        TextColor="Black"
+                        Margin="0,15,0,0"
+                        FontSize="20"
+                        WidthRequest="250"/>
+
+                <Label  x:Name="informLabel"
+                        HorizontalOptions="Center"
+                        Margin="15"
+                        FontSize="20"
+                        WidthRequest="250"/>
+            
+                <Entry x:Name="informBox"
+                       HorizontalOptions="Center"
+                        WidthRequest="250"/>
+
+                <Button Text="Изменить"
+                        HorizontalOptions="Center"
+                        WidthRequest="250"
+                        Clicked="Update_Clicked" />
+                 
+                <Label  Text="Teлефон::"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label x:Name="phoneUser"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label  Text="Абонемент:"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label x:Name="nameAbonement"
+                    HorizontalOptions="Center"
+                    Margin="15"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label  Text="Дата начала абонемента:"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label x:Name="dateStart"
+                    HorizontalOptions="Center"
+                    Margin="15"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
+            
+                <Label  Text="Дата оканчания абонемента:"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label x:Name="dateEnd"
+                    HorizontalOptions="Center"
+                    Margin="15,15,15,50"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
 
 
 
-    <ContentPage Title="Tab 1" />
+                <Label  Text="Уровень абонемента:"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+                <Label x:Name="levelAbonement"
+                    HorizontalOptions="Center"
+                    Margin="15,15,15,50"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
+
+                <Label  Text="Цена абонемента:"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    WidthRequest="250"/>
+                <Label x:Name="priceAbonement"
+                    HorizontalOptions="Center"
+                    Margin="15,15,15,50"
+                    HorizontalTextAlignment="Center"
+                    FontSize="20"
+                    WidthRequest="250"/>
 
 
-    <ContentPage Title="Tab 2" />
-
-    <ContentPage Title="Tab 3" >
-        <StackLayout>
-            <Image x:Name="imageAvatar" 
-                   Margin="0,30,0,20" 
-                   HorizontalOptions="Center"
-                   HeightRequest="175"/>
 
 
-            <Label x:Name="Username" 
-                   HorizontalOptions="Center"
-                   FontSize="28"
-                   TextColor="Black"
-                   FormattedText="Bold">User</Label>
-
-            <Label x:Name="informUser" />
-
-
-
-        </StackLayout>
-    </ContentPage>
+             </StackLayout>
+          </ScrollView>
+      </StackLayout>
+</ContentPage>
 
 
 

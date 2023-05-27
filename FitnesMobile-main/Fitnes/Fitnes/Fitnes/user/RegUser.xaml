@@ -71,11 +71,13 @@
             WidthRequest="350" 
             HorizontalOptions="Center"
             Margin="0,-5,0,0"/>
+        
 
 
 
         <Button x:Name="button1"  
                 Text="Регистрация" FontSize="16"
+                TextColor="White"
                 FontFamily="Times New Roman"
                 Background="red" 
                 Clicked="button1_Clicked" 

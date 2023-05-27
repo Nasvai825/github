@@ -35,15 +35,21 @@ namespace Fitnes
             {
                 if (isUserExist() == false)
                 {
+                   // DateTime dateTime = new DateTime();
+                   // dateTime = DateTime.UtcNow;
+
+
                     if (passwordUser == passwordUser2)
                     {
                         DB db = new DB();
                         db.openConnection();
-                        MySqlCommand command = new MySqlCommand("INSERT INTO `klient`(`idKlient`,`FIOKlient`, `phoneKlient`, `pass_klient`)" +
-                            "values (default, @fio, @phone, @password)", db.getConnection());
+                        MySqlCommand command = new MySqlCommand("INSERT INTO `klient`(`idKlient`,`FIOKlient`, `phoneKlient`, `pass_klient`,`karta_idKarta`)" +
+                            "values (default, @fio, @phone, @password, null)", db.getConnection());
                         command.Parameters.Add("@fio", MySqlDbType.VarChar).Value = fioUser;
                         command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phoneUser;
-                        command.Parameters.Add("@password", MySqlDbType.VarChar).Value = GetHashMD5(passwordUser);
+                       // command.Parameters.Add("@start", MySqlDbType.DateTime).Value = dateTime;
+                       // command.Parameters.Add("@end", MySqlDbType.DateTime).Value = dateTime.AddMonths(1);
+                        command.Parameters.Add("@password", MySqlDbType.VarChar).Value = passwordUser;
 
                         if (command.ExecuteNonQuery() == 1)
                         {
