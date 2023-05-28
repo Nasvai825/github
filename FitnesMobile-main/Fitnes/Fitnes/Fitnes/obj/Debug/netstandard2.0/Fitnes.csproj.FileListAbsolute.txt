@@ -34,3 +34,4 @@ C:\Users\User\Desktop\github\FitnesMobile-main\Fitnes\Fitnes\Fitnes\bin\Debug\ne
 C:\Users\User\Desktop\github\FitnesMobile-main\Fitnes\Fitnes\Fitnes\bin\Debug\netstandard2.0\Fitnes.pdb
 C:\Users\User\Desktop\github\FitnesMobile-main\Fitnes\Fitnes\Fitnes\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\User\Desktop\github\FitnesMobile-main\Fitnes\Fitnes\Fitnes\obj\Debug\netstandard2.0\ref\Fitnes.dll
+C:\Users\User\Desktop\github\FitnesMobile-main\Fitnes\Fitnes\Fitnes\obj\Debug\netstandard2.0\admin\MainAdmin.xaml.g.cs

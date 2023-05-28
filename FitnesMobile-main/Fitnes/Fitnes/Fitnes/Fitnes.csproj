@@ -42,6 +42,9 @@
     <Compile Update="admin\AvtorizAdmin.xaml.cs">
       <DependentUpon>AvtorizAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Update="admin\MainAdmin.xaml.cs">
+      <DependentUpon>MainAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Update="user\RegUser.xaml.cs">
       <DependentUpon>RegUser.xaml</DependentUpon>
     </Compile>
@@ -54,6 +57,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="admin\MainAdmin.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="user\MainUser.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

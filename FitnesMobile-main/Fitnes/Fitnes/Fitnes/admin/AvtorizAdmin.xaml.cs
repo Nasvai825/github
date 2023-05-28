@@ -7,11 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Fitnes;
 using Xamarin.Forms;
+using Fitnes.admin;
 
 namespace Fitnes
 {
     public partial class RegUser : ContentPage
     {
+        List<string> adminData = new List<string>();
         public RegUser()
         {
             InitializeComponent();
@@ -31,7 +33,7 @@ namespace Fitnes
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `admin` WHERE `Phone_Admin`=@phoneAdmin AND `Password_Admin`=@passwordAdmin", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `sotrudnic` WHERE `phoneSotrudnic`=@phoneAdmin AND `password`=@passwordAdmin", db.getConnection());
             command.Parameters.Add("@phoneAdmin", MySqlDbType.VarChar).Value = phoneAdmin;
             command.Parameters.Add("@passwordAdmin", MySqlDbType.VarChar).Value = passwordAdmin;
 
@@ -41,6 +43,7 @@ namespace Fitnes
             if (reader.HasRows)
             {
                 await DisplayAlert("Норм", "Реально норм", "OK");
+                await Navigation.PushAsync(new MainAdmin(adminData));
             }
             else
             {

@@ -12,7 +12,6 @@ using Xamarin.Forms.Xaml;
 
 namespace Fitnes.user
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainUser : TabbedPage
     {
         List<string> userData = new List<string>();
