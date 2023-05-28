@@ -18,7 +18,23 @@
 
     <ContentPage Title ="Kart" >
         <StackLayout>
-            
+            <Label Text="Выбирите уровень абонемента:"
+                   HorizontalOptions="Center"
+                    TextColor="Black"
+                    Margin="15"
+                    FontSize="20"
+                    />
+
+            <Picker x:Name="nameAbon"/>
+            <Button x:Name="picerButton"  
+                Text="Сохранить" FontSize="16" TextColor ="White" 
+                Clicked="PicerButton_Clicked"
+                Background="red" 
+                HorizontalOptions="Center" WidthRequest="250" 
+                Margin="0,15,0,0"
+                BorderWidth="2"
+                BorderColor="#A30202"/>
+
         </StackLayout>
     </ContentPage>
 
@@ -35,8 +51,8 @@
                         <Label x:Name="balance" 
                             Text="Баланс: "
                             FontSize="16"
-                            Margin="0,15,0,0" 
-                            HorizontalOptions="Center"
+                            Margin="0,15,20,0" 
+                            HorizontalOptions="End"
                             HeightRequest="175"
                             TextColor="Black"
                             />

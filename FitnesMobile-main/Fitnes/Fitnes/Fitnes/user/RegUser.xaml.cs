@@ -49,7 +49,7 @@ namespace Fitnes
                         command.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phoneUser;
                        // command.Parameters.Add("@start", MySqlDbType.DateTime).Value = dateTime;
                        // command.Parameters.Add("@end", MySqlDbType.DateTime).Value = dateTime.AddMonths(1);
-                        command.Parameters.Add("@password", MySqlDbType.VarChar).Value = passwordUser;
+                        command.Parameters.Add("@password", MySqlDbType.VarChar).Value = GetHashMD5(passwordUser);
 
                         if (command.ExecuteNonQuery() == 1)
                         {
