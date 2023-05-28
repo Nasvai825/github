@@ -16,6 +16,7 @@ namespace Fitnes.admin
         {
             InitializeComponent();
 
+
         }
     }
 }

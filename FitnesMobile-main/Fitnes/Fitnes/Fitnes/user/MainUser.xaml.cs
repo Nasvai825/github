@@ -32,7 +32,7 @@ namespace Fitnes.user
             userData.Clear();
             userData.AddRange(userData2);
             Username.Text = userData[2];
-
+            
             Update_Data();
 
         }
@@ -95,6 +95,7 @@ namespace Fitnes.user
         private void Update_Data()
         {
             phoneUser.Text = userData[1];
+         
             if (userData[3] == "" && upAbon == false)
             {
                 nameAbonement.Text = "У вас нет абонемента";
@@ -124,6 +125,7 @@ namespace Fitnes.user
                     }
                 }
                 db.closeConnection();
+               
             }
         }
 

@@ -49,13 +49,14 @@
                            HeightRequest="155"/>
 
                         <Label x:Name="balance" 
-                            Text="Баланс: "
+                            Text="Баланс: 5000"
                             FontSize="16"
-                            Margin="0,15,20,0" 
+                            Margin="0,15,30,0" 
                             HorizontalOptions="End"
                             HeightRequest="175"
                             TextColor="Black"
                             />
+                       
                     </Grid>
 
                     <Label x:Name="Username" 
