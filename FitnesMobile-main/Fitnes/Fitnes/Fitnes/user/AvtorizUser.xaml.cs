@@ -32,13 +32,13 @@ namespace Fitnes
             await Navigation.PushAsync(new RegUser());
         }
 
-        private async void AvtorizButton_Clicked(object sender, EventArgs e)
+        private void AvtorizButton_Clicked(object sender, EventArgs e)
         {
             string phoneUser = nameInput1.Text;
             string passwordUser = nameInput2.Text;
             if (phoneUser == "" || passwordUser == "")
             {
-                await DisplayAlert("Ошибка", "Заполните все поля", "OK");
+                DisplayAlert("Ошибка", "Заполните все поля", "OK");
             }
             else
             {
@@ -46,7 +46,7 @@ namespace Fitnes
                 db.openConnection();
                 MySqlCommand command = new MySqlCommand("SELECT * FROM `klient` WHERE `phoneKlient`=@phoneUser AND `pass_klient`=@passwordUser", db.getConnection());
                 command.Parameters.Add("@phoneUser", MySqlDbType.VarChar).Value = phoneUser;
-                command.Parameters.Add("@passwordUser", MySqlDbType.VarChar).Value = passwordUser;
+                command.Parameters.Add("@passwordUser", MySqlDbType.VarChar).Value = GetHashMD5(passwordUser);
                 MySqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows) // это строки?
@@ -58,12 +58,12 @@ namespace Fitnes
                         userData.Add(reader[2].ToString());
                         userData.Add(reader[4].ToString());
                     }
-                    await DisplayAlert("Успех", "Вы авторизировались", "ок");
-                    await Navigation.PushAsync(new MainUser(userData));
+                    DisplayAlert("Успех", "Вы авторизировались", "ок");
+                    Navigation.PushAsync(new MainUser(userData));
                 }
                 else
                 {
-                    await DisplayAlert("Ошибка", "Не верные данные", "OK");
+                    DisplayAlert("Ошибка", "Не верные данные", "OK");
                 }
                 db.closeConnection();
             }

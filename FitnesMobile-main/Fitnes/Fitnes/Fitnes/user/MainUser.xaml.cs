@@ -16,6 +16,8 @@ namespace Fitnes.user
     {
         List<string> userData = new List<string>();
         bool upAbon = false;
+        string sql;
+        int id = 0;
         public MainUser(List<string> userData2)
         {
             InitializeComponent();
@@ -27,6 +29,7 @@ namespace Fitnes.user
             nameAbon.Items.Add("Премиум");
             nameAbon.Items.Add("Премиум+");
 
+
             imageAvatar.Source = ImageSource.FromResource("Fitnes.image.avatar.png");
             
             userData.Clear();
@@ -34,7 +37,7 @@ namespace Fitnes.user
             Username.Text = userData[2];
             
             Update_Data();
-
+            LoadData();
         }
 
         protected override void OnAppearing()
@@ -47,7 +50,6 @@ namespace Fitnes.user
 
         private void PicerButton_Clicked(object sender, EventArgs e)
         {
-            int id = 0;
             DateTime dateTime = new DateTime();
             dateTime = DateTime.UtcNow;
 
@@ -75,22 +77,23 @@ namespace Fitnes.user
             command3.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             command3.Parameters.Add("@idUser2", MySqlDbType.Int32).Value = Convert.ToInt32(userData[0]);
             command3.ExecuteNonQuery();
-            DisplayAlert("Успех", "Вы оформили абонемент на месяц", "Ок");
-            
             userData[3] = (nameAbon.SelectedIndex + 1).ToString();
             upAbon = true;
+            DisplayAlert("Успех", "Вы оформили абонемент на месяц", "Ок");
+            
+            
+            
             db.closeConnection();
             Update_Data();
         }
 
-            private void Update_Clicked(object sender, EventArgs e)
+        private void Update_Clicked(object sender, EventArgs e)
         {
             informBox.IsVisible = false;
             string value = informBox.Text;
             informLabel.Text = value;
             Preferences.Set("name", value);
             informBox.IsVisible = true;
-
         }
         private void Update_Data()
         {
@@ -103,18 +106,23 @@ namespace Fitnes.user
                 dateEnd.Text = "-";
                 levelAbonement.Text = "-";
                 priceAbonement.Text = "-";
-                DisplayAlert("v", "dvvsdvdv", "advasd");
+               
             }
             else
             {
+              
                 DB db = new DB();
                 db.openConnection();
-                MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `klient`,`karta`,`abonement` WHERE `karta_idKarta`=`idKarta` and `abonement_idAbonement`=`idAbonement` and `karta_idKarta`=@id", db.getConnection());
-                command.Parameters.Add("@id", MySqlDbType.Int32).Value = Convert.ToInt32(userData[3]);
+                MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `karta`,`abonement` WHERE  `abonement_idAbonement`=`idAbonement` and `idKarta`=@id", db.getConnection());
+                
+                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                
+
                 MySqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows) // это строки?
                 {
+                    DisplayAlert("строка есть", "dvvsdvdv", "advasd");
                     while (reader.Read()) // забираю данные из бд
                     {
                         dateStart.Text = reader[0].ToString();
@@ -124,9 +132,113 @@ namespace Fitnes.user
                         priceAbonement.Text = reader[4].ToString();
                     }
                 }
+                reader.Close();
                 db.closeConnection();
                
             }
+        }
+
+        
+
+        private void LoadData()
+        {
+            callView.Children.Clear();
+            NameColumn.Children.Clear();
+            int j = 0;
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `raspisanie`", db.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                Grid grid2 = new Grid
+                {
+                    HeightRequest = 45,
+                    RowSpacing = -45,
+                    ColumnSpacing = 4,
+                    BackgroundColor = Color.Black,
+                    RowDefinitions =
+                    {
+                        new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    },
+                    ColumnDefinitions =
+                    {
+                        new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+                    }
+                };
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    string textcall2 = reader.GetName(i).ToString();
+                    Label label2 = new Label
+                    {
+                        FontSize = 12,
+                        Text = textcall2,
+                    };
+                    label2.VerticalTextAlignment = TextAlignment.Center;
+                    label2.HorizontalTextAlignment = TextAlignment.Center;
+                    label2.TextColor = Color.Black;
+                    label2.BackgroundColor = Color.White;
+                    grid2.Children.Add(label2, i, 0);
+                }
+                BoxView box2 = new BoxView
+                {
+                    Margin = new Thickness(0, -7, 0, 0),
+                    HeightRequest = 4,
+                };
+                box2.BackgroundColor = Color.Black;
+                NameColumn.Children.Add(grid2);
+                NameColumn.Children.Add(box2);
+
+                while (reader.Read())
+                {
+
+                    Grid grid = new Grid
+                    {
+                        HeightRequest = 45,
+                        RowSpacing = -45,
+                        ColumnSpacing = 4,
+                        BackgroundColor = Color.Black,
+                        RowDefinitions =
+                        {
+                            new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                        },
+                        ColumnDefinitions =
+                        {
+                            new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+                        }
+                    };
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        string textcall = reader[i].ToString();
+                        if (textcall == "")
+                        {
+                            textcall = "Нет";
+                        }
+                        Label label1 = new Label
+                        {
+                            FontSize = 12,
+                            Text = textcall,
+                        };
+                        label1.VerticalTextAlignment = TextAlignment.Center;
+                        label1.HorizontalTextAlignment = TextAlignment.Center;
+                        label1.TextColor = Color.Black;
+                        label1.BackgroundColor = Color.LightGray;
+                        grid.Children.Add(label1, i, j);
+                    }
+                    j++;
+                    BoxView box = new BoxView
+                    {
+                        Margin = -5,
+                        HeightRequest = 2
+                    };
+                    box.BackgroundColor = Color.Black;
+                    callView.Children.Add(grid);
+                    callView.Children.Add(box);
+                }
+            }
+            db.closeConnection();
         }
 
 

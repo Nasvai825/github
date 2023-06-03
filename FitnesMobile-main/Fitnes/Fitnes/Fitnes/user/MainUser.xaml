@@ -10,9 +10,15 @@
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Raspisanie" >
+    <ContentPage Title="Расписание">
         <StackLayout>
+            <StackLayout x:Name="NameColumn">
+        </StackLayout>
 
+        <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
+            <StackLayout x:Name="callView">
+            </StackLayout>
+        </ScrollView>
         </StackLayout>
     </ContentPage>
 
@@ -34,6 +40,7 @@
                 Margin="0,15,0,0"
                 BorderWidth="2"
                 BorderColor="#A30202"/>
+            
 
         </StackLayout>
     </ContentPage>
