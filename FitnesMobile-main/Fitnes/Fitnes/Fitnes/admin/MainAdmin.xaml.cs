@@ -12,11 +12,33 @@ namespace Fitnes.admin
 {
     public partial class MainAdmin : TabbedPage
     {
-
+        string sql;
         public MainAdmin(List<string> adminData)
         {
             InitializeComponent();
 
+            Сategory.Items.Add("Массаж");
+            Сategory.Items.Add("Солярий");
+            Сategory.Items.Add("Персональная тренеровка");
+            Сategory.Items.Add("Аэробика");
+            Сategory.Items.Add("Кардио");
+        }
+        private void Update_Schedule(object sender, EventArgs e)
+        {
+            string updateCategory = nameInput3.Text;
+            СategoryLable.IsVisible = true;
+            Сategory.IsVisible = true;
+            
+
+        }
+        private void Insert_Schedule(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Full_Schedule(object sender, EventArgs e)
+        {
+            sql = " SELECT uslugi.nameUslugi, raspisanie.Date, raspisanie.Time FROM uslugi JOIN raspisanie ON `idRaspisanie` >= `uslugi_idUslugi`";
             LoadData();
         }
 
@@ -28,7 +50,7 @@ namespace Fitnes.admin
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `raspisanie`", db.getConnection());
+            MySqlCommand command = new MySqlCommand(sql, db.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)

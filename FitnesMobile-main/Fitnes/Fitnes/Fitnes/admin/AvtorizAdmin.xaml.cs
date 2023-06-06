@@ -1,13 +1,14 @@
-﻿using MySqlConnector;
+﻿using Fitnes.admin;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Fitnes;
 using Xamarin.Forms;
-using Fitnes.admin;
 
 namespace Fitnes
 {

@@ -39,6 +39,17 @@ namespace Fitnes.user
             Update_Data();
             LoadData();
         }
+        private void Full_Schedule_User(object sender, EventArgs e)
+        {
+
+        }
+        private void Sort_Schedule(object sender, EventArgs e)
+        {
+            string sort_Schedule = nameInput5.Text;
+            СategoryLable_User.IsVisible = true;
+            Сategory_User.IsVisible = true;
+        }
+
 
         protected override void OnAppearing()
         {
@@ -148,7 +159,7 @@ namespace Fitnes.user
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `raspisanie`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT uslugi.nameUslugi, raspisanie.Date, raspisanie.Time FROM uslugi JOIN raspisanie ON `idRaspisanie` >= `uslugi_idUslugi`", db.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
