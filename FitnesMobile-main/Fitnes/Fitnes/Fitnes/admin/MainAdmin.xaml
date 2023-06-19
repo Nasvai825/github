@@ -1,15 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fitnes.admin.MainAdmin">
 
 <ContentPage Title="Записи" >
-        <StackLayout>
-            
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="labelPost"
+                       FontSize="20"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       TextColor="Black"/>
+
+                <StackLayout x:Name="NameColumnPost">
+                </StackLayout>
+
+                <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
+                    <StackLayout x:Name="callViewPost">
+                    </StackLayout>
+                </ScrollView>
+
+                <Entry Text="Введите код карты клиента"
+                       x:Name="Entry_idKarta"
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Margin="15"/>
+
+                <Button  x:Name="buttonVisits"  
+                        Text="Отметить посещение" FontSize="16"
+                        TextColor="White"
+                        FontFamily="Times New Roman"
+                        Background="red" 
+                        Clicked="buttonVisits_Clicked" 
+                        HorizontalOptions="Center" WidthRequest="250" 
+                        Margin="0,20,0,0"
+                        BorderWidth="2"
+                        BorderColor="#A30202"/>     
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage>
 
-    <ContentPage Title="Расписание" >
+<ContentPage Title="Расписание" >
         <StackLayout>
 
 
@@ -84,7 +117,7 @@
             
         </StackLayout>
         
-    </ContentPage>
+</ContentPage>
     
 <ContentPage Title="Поддержка" >
         <StackLayout>

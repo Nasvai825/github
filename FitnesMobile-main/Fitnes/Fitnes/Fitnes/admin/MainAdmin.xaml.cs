@@ -13,6 +13,7 @@ namespace Fitnes.admin
     public partial class MainAdmin : TabbedPage
     {
         string sql;
+        string post = "";
         public MainAdmin(List<string> adminData)
         {
             InitializeComponent();
@@ -22,6 +23,38 @@ namespace Fitnes.admin
             Сategory.Items.Add("Персональная тренеровка");
             Сategory.Items.Add("Аэробика");
             Сategory.Items.Add("Кардио");
+        }
+        private void Visits_Ok(object sender, EventArgs e)
+        {
+            labelPost.Text = post;
+            
+                if (post == "Администратор")
+                {
+                    sql = "";
+                    LoadData();
+
+                }
+                if (post == "Тренер")
+                {
+                    sql = "";
+                    LoadData();
+
+                }
+                if (post == "Массажист")
+                {
+                    sql = "";
+                    LoadData();
+
+                }
+                else
+                {
+                     DisplayAlert("Ошибка", "Поле не заполнено", "OK");
+                }
+
+        }
+        private void buttonVisits_Clicked(object sender, EventArgs e) 
+        {
+
         }
         private void Update_Schedule(object sender, EventArgs e)
         {
@@ -35,7 +68,7 @@ namespace Fitnes.admin
         {
             
         }
-
+    
         private void Full_Schedule(object sender, EventArgs e)
         {
             sql = " SELECT uslugi.nameUslugi, raspisanie.Date, raspisanie.Time FROM uslugi JOIN raspisanie ON `idRaspisanie` >= `uslugi_idUslugi`";
