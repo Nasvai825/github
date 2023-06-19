@@ -30,25 +30,25 @@ namespace Fitnes.admin
             
                 if (post == "Администратор")
                 {
-                    sql = "";
+                    sql = "SELECT karta.idKarta, klient.FIOKlient, abonement.NameAbonement FROM karta JOIN klient, abonement";
                     LoadData();
 
                 }
                 if (post == "Тренер")
                 {
-                    sql = "";
+                    sql = "SELECT karta.idKarta, klient.FIOKlient, abonement.NameAbonement\r\nFROM karta\r\nJOIN klient, abonement WHERE abonement.idAbonement > 1";
                     LoadData();
 
                 }
                 if (post == "Массажист")
                 {
-                    sql = "";
+                    sql = "SELECT karta.idKarta, klient.FIOKlient, abonement.NameAbonement\r\nFROM karta\r\nJOIN klient, abonement WHERE abonement.idAbonement > 4";
                     LoadData();
 
                 }
                 else
                 {
-                     DisplayAlert("Ошибка", "Поле не заполнено", "OK");
+                DisplayAlert("Ошибка", "Поле не заполнено", "OK");
                 }
 
         }

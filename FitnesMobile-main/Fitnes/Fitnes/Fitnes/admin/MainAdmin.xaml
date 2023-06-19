@@ -12,11 +12,11 @@
                        HorizontalOptions="Center"
                        TextColor="Black"/>
 
-                <StackLayout x:Name="NameColumnPost">
+                <StackLayout x:Name="NameColumn">
                 </StackLayout>
 
                 <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
-                    <StackLayout x:Name="callViewPost">
+                    <StackLayout x:Name="callView">
                     </StackLayout>
                 </ScrollView>
 
