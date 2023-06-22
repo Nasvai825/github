@@ -22,12 +22,6 @@ namespace Fitnes.admin
 
             post = post2;
             labelPost.Text = post;
-            
-            Сategory.Items.Add("Массаж");
-            Сategory.Items.Add("Солярий");
-            Сategory.Items.Add("Персональная тренеровка");
-            Сategory.Items.Add("Аэробика");
-            Сategory.Items.Add("Кардио");
 
             LoadDataInTableSchedule();
             LoadDataInTableClient();

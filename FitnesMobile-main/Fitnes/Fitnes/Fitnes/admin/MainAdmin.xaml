@@ -62,7 +62,8 @@
                         Grid.Row="0"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        WidthRequest="120"
+                        Margin="15"
+                        WidthRequest="250"
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
 
@@ -71,22 +72,42 @@
                         TextColor="White"
                         FontSize="12"
                         Grid.Column="2"
+                        Margin="15"
                         Grid.Row="0"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"
-                        WidthRequest="120"
+                        WidthRequest="250"
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
 
+                <Picker x:Name="Сategory" IsVisible="false" HorizontalTextAlignment="Center"/>
                 <Label x:Name="СategoryLable"
-                   Text="Какую категорию услуг вы хотите изменить?"
-                   IsVisible="false"
-                   FontSize="19"
-                   Margin="15,7"
-                   TextColor="Black"/>
-
-                <Picker x:Name="Сategory" IsVisible="false"/>
+                       Text="Какую категорию услуг вы хотите изменить?"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+                <DatePicker x:Name="СategoryDate" IsVisible="false" />
+                <TimePicker x:Name="СategoryTime" IsVisible="false" />
                 <Entry x:Name="nameInput3" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center" IsVisible="false"/>
+               
+                
+                <Label x:Name="СategoryLable2"
+                       Text="Выбирите дату"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25"
+                       TextColor="Black"/>
+                
+                <Label x:Name="СategoryLable3"
+                       Text="Выбирите время"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25"
+                       TextColor="Black"/>
 
             </StackLayout>
         </ScrollView>
