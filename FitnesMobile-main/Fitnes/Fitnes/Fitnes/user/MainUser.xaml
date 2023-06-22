@@ -30,17 +30,7 @@
 
                 </Grid.RowDefinitions>
 
-                <Button Clicked="Full_Schedule_User"
-                        Text="Полное расписание"
-                        TextColor="White"
-                        FontSize="12"
-                        Grid.Column="0"
-                        Grid.Row="0"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="120"
-                        BackgroundColor="red" BorderColor="#A30202"
-                        BorderWidth="3" CornerRadius="30"></Button>
+       
 
                 <Button Clicked="Sort_Schedule"
                         Text="Поиск"

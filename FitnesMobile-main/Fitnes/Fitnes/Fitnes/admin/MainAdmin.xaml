@@ -10,9 +10,11 @@
                        FontSize="20"
                        HorizontalTextAlignment="Center"
                        HorizontalOptions="Center"
+                       Margin="20"
                        TextColor="Black"/>
 
-                <StackLayout x:Name="NameColumn">
+
+                    <StackLayout x:Name="NameColumn">
                 </StackLayout>
 
                 <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
@@ -20,7 +22,7 @@
                     </StackLayout>
                 </ScrollView>
 
-                <Entry Text="Введите код карты клиента"
+                <Entry Placeholder="Введите код карты клиента"
                        x:Name="Entry_idKarta"
                        HorizontalOptions="Center"
                        HorizontalTextAlignment="Center"
@@ -46,11 +48,11 @@
         <StackLayout>
 
 
-            <StackLayout x:Name="NameColumn">
+            <StackLayout x:Name="NameColumn2">
             </StackLayout>
 
             <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
-                <StackLayout x:Name="callView">
+                <StackLayout x:Name="callView2">
                 </StackLayout>
             </ScrollView>
 
@@ -61,25 +63,13 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
 
-                    </Grid.RowDefinitions>
+                </Grid.RowDefinitions>
 
-                    <Button Clicked="Full_Schedule"
-                        Text="Полное расписание"
-                        TextColor="White"
-                        FontSize="12"
-                        Grid.Column="0"
-                        Grid.Row="0"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="120"
-                        BackgroundColor="red" BorderColor="#A30202"
-                        BorderWidth="3" CornerRadius="30"></Button>
-
-                    <Button Clicked="Update_Schedule"
+                <Button Clicked="Update_Schedule"
                         Text="Изменить"
                         TextColor="White"
                         FontSize="12"

@@ -14,7 +14,7 @@ namespace Fitnes
 {
     public partial class RegUser : ContentPage
     {
-        List<string> adminData = new List<string>();
+        string post;
         public RegUser()
         {
             InitializeComponent();
@@ -43,12 +43,15 @@ namespace Fitnes
 
             if (reader.HasRows)
             {
-                await DisplayAlert("Норм", "Реально норм", "OK");
-                await Navigation.PushAsync(new MainAdmin(adminData));
+                while (reader.Read())
+                {
+                    post = reader[5].ToString();
+                }
+                await Navigation.PushAsync(new MainAdmin(post));
             }
             else
             {
-                await DisplayAlert("Не норм", "Реально не норм", "OK");
+                await DisplayAlert("Ошибка!", "Не правильный логин или пароль", "OK");
             }
             db.closeConnection();
         }
