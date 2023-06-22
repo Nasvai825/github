@@ -22,12 +22,11 @@
                     </StackLayout>
                 </ScrollView>
 
-                <Entry Placeholder="Введите код карты клиента"
-                       x:Name="Entry_idKarta"
-                       HorizontalOptions="Center"
-                       HorizontalTextAlignment="Center"
-                       TextColor="Black"
-                       Margin="15"/>
+                <Picker x:Name="Picker_idKarta"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"  WidthRequest="250"
+                        TextColor="Black"
+                        Margin="15"/>
 
                 <Button  x:Name="buttonVisits"  
                         Text="Отметить посещение" FontSize="16"

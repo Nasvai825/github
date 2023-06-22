@@ -32,12 +32,27 @@ namespace Fitnes.admin
             LoadDataInTableSchedule();
             LoadDataInTableClient();
 
+            InsertDataInPicker();
+
 
         }
+
         private void buttonVisits_Clicked(object sender, EventArgs e) 
         {
+            int idVisiter = Convert.ToInt32(Picker_idKarta.SelectedItem);
 
+            DateTime dateTime = new DateTime();
+            dateTime = DateTime.Now;
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `visits`(`idVisits`, `dateTime`, `id_klient`) VALUES (default,@dateTime,@idVisiter)", db.getConnection());
+            command.Parameters.Add("@dateTime", MySqlDbType.DateTime).Value = dateTime;
+            command.Parameters.Add("@idVisiter", MySqlDbType.Int32).Value = idVisiter;
+            command.ExecuteNonQuery();
+            DisplayAlert("Ок", "Чето там заработало", "ок");
         }
+
         private void Update_Schedule(object sender, EventArgs e)
         {
             string updateCategory = nameInput3.Text;
@@ -50,7 +65,26 @@ namespace Fitnes.admin
         {
             
         }
-      
+
+        private void InsertDataInPicker()
+        {
+            Picker_idKarta.Items.Clear();
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `idKlient` FROM `klient` ", db.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Picker_idKarta.Items.Add(reader[0].ToString());
+                }
+            }
+            db.closeConnection();
+        }
+        
+
 
         private void LoadDataInTableSchedule()
         {
@@ -89,6 +123,7 @@ namespace Fitnes.admin
                     {
                         FontSize = 12,
                         Text = textcall2,
+                        Margin = new Thickness(0, 4, 0, 0),
                     };
                     label2.VerticalTextAlignment = TextAlignment.Center;
                     label2.HorizontalTextAlignment = TextAlignment.Center;
@@ -98,7 +133,6 @@ namespace Fitnes.admin
                 }
                 BoxView box2 = new BoxView
                 {
-                    Margin = new Thickness(0, -7, 0, 0),
                     HeightRequest = 4,
                 };
                 box2.BackgroundColor = Color.Black;
@@ -213,7 +247,7 @@ namespace Fitnes.admin
                 }
                 BoxView box2 = new BoxView
                 {
-                    Margin = new Thickness(0, -7, 0, 0),
+                    Margin = new Thickness(0, 3, 0, 0),
                     HeightRequest = 4,
                 };
                 box2.BackgroundColor = Color.Black;
