@@ -90,6 +90,21 @@ namespace Fitnes.admin
             //Specified cast is not valid.command.ExecuteNonQuery();
             command.ExecuteNonQuery();
             LoadDataInTableSchedule();
+            DisplayAlert("Отлично", "Запись добавлена", "Ок");
+        }
+        private void buttonInsertData_Clicked(object sender, EventArgs e)
+        {
+            int q = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("UPDATE raspisanie SET Time=@Time, Date =@Date WHERE idRaspisanie=@idRasp", db.getConnection());
+            command.Parameters.Add("@Time", MySqlDbType.Time).Value = Picker_Time.Time;
+            command.Parameters.Add("@Date", MySqlDbType.Date).Value = Picker_Date.Date;
+            command.Parameters.Add("@idRasp", MySqlDbType.Int32).Value = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
+            //Specified cast is not valid.command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
+            LoadDataInTableSchedule();
             DisplayAlert("Отлично", "Время изменено", "ок");
         }
 

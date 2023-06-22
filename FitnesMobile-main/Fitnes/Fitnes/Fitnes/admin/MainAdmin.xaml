@@ -67,7 +67,7 @@
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
 
-                <Button Clicked="Insert_Schedule"
+                <Button Clicked="buttonInsertData_Clicked"
                         Text="Добавить"
                         TextColor="White"
                         FontSize="12"
