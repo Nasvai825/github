@@ -75,7 +75,25 @@ namespace Fitnes.admin
             }
             db.closeConnection();
         }
-        
+        private void InsertDataInPickerSchedule()
+        {
+
+            Picker_idUslugi.Items.Clear();
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `idKlient` FROM `klient` ", db.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Picker_idKarta.Items.Add(reader[0].ToString());
+                }
+            }
+            db.closeConnection();
+        }
+
 
 
         private void LoadDataInTableSchedule()
