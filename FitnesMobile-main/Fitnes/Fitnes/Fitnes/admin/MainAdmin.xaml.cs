@@ -35,6 +35,8 @@ namespace Fitnes.admin
             Picker_idUslugi.IsVisible = true;
             Picker_Date.IsVisible = true;
             Picker_Time.IsVisible = true;
+            QuestionTime_Picker.IsVisible = true;
+            QuestionDate_Picker.IsVisible = true;
             Picker_idUslugi.Items.Clear();
 
 
@@ -147,12 +149,15 @@ namespace Fitnes.admin
 
         private void InsertDataInPickerSchedule(object sender, EventArgs e)
         {
-
+            QuestionLable.IsVisible = false;
+            Picker_idUslugi.IsVisible = false;
             СategoryLable.IsVisible = true;
             Picker_idRaspisanie.IsVisible = true;
             buttonUpdateData.IsVisible = true;
             Picker_Date.IsVisible = true;
-            Picker_Time.IsVisible = true; 
+            Picker_Time.IsVisible = true;
+            QuestionTime_Picker.IsVisible = true;
+            QuestionDate_Picker.IsVisible = true;
 
             Picker_idRaspisanie.Items.Clear();
 

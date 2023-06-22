@@ -79,18 +79,43 @@
                         WidthRequest="250"
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
-
-                <Picker x:Name="Picker_idRaspisanie" IsVisible="false" HorizontalTextAlignment="Center"/>
-                <Picker x:Name="Picker_idUslugi" IsVisible="false" HorizontalTextAlignment="Center"/>
+                
                 <Label x:Name="СategoryLable"
-                       Text="Какую категорию услуг вы хотите изменить?"
+                       Text="Выберите код в расписании:"
                        HorizontalTextAlignment="Center"
                        IsVisible="false"
                        FontSize="19"
                        Margin="25,25,25,40"
                        TextColor="Black"/>
-                <DatePicker x:Name="Picker_Date" IsVisible="false" />
-                <TimePicker x:Name="Picker_Time" IsVisible="false" Format="T"/>
+
+                <Picker x:Name="Picker_idRaspisanie" IsVisible="false" HorizontalTextAlignment="Center"/>
+
+                <Label x:Name="QuestionLable"
+                       Text="Какую категорию услуг вы хотите добавить?"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+                <Picker x:Name="Picker_idUslugi" IsVisible="false" HorizontalTextAlignment="Center"/>
+
+                <Label x:Name="QuestionDate_Picker"
+                       Text="Выберете дату:"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+                <DatePicker x:Name="Picker_Date" IsVisible="false" HorizontalOptions="Center"/>
+                
+                <Label x:Name="QuestionTime_Picker"
+                       Text="Выберите время:"
+                       HorizontalTextAlignment="Center"
+                       IsVisible="false"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+                <TimePicker x:Name="Picker_Time" IsVisible="false" Format="T" HorizontalOptions="Center"/>
 
                 <Button Clicked="buttonUpdateData_Clicked"
                         x:Name="buttonUpdateData"
@@ -119,23 +144,23 @@
                        FontSize="19"
                        Margin="25,25,25,40"
                        TextColor="Black"/>
-            
+
             <Entry x:Name="nameInputNews"
                    HorizontalTextAlignment="Center"
                    WidthRequest="350"
                    HorizontalOptions="Center"/>
-            
+
             <Label x:Name="textNews"
                        Text="Добавьте основной текст:"
                        HorizontalTextAlignment="Center"
                        FontSize="19"
                        Margin="25,25,25,40"
                        TextColor="Black"/>
-            
+
             <Editor x:Name="InputNewsText"
                    WidthRequest="350"
                    HorizontalOptions="Center"/>
-            
+
             <Button Clicked="NewsAdd_Clicked"
                         x:Name="NewsAdd"
                         Text="Добавить новость"
@@ -152,11 +177,5 @@
 
         </StackLayout>
     </ContentPage>
-
-    <ContentPage Title="Поддержка" >
-        <StackLayout>
-
-        </StackLayout>
-    </ContentPage>
-
+    
 </TabbedPage>
