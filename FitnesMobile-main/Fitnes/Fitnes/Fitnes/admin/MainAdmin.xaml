@@ -54,7 +54,7 @@
                     </StackLayout>
                 </ScrollView>
 
-                <Button Clicked="Update_Schedule"
+                <Button Clicked="InsertDataInPickerSchedule"
                         Text="Изменить"
                         TextColor="White"
                         FontSize="12"
@@ -80,7 +80,7 @@
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
 
-                <Picker x:Name="Picker_idUslugi" IsVisible="false" HorizontalTextAlignment="Center"/>
+                <Picker x:Name="Picker_idRaspisanie" IsVisible="false" HorizontalTextAlignment="Center"/>
                 <Label x:Name="СategoryLable"
                        Text="Какую категорию услуг вы хотите изменить?"
                        HorizontalTextAlignment="Center"
@@ -88,32 +88,70 @@
                        FontSize="19"
                        Margin="25,25,25,40"
                        TextColor="Black"/>
-                <DatePicker x:Name="СategoryDate" IsVisible="false" />
-                <TimePicker x:Name="СategoryTime" IsVisible="false" />
-                <Entry x:Name="nameInput3" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center" IsVisible="false"/>
-               
-                
-                <Label x:Name="СategoryLable2"
-                       Text="Выбирите дату"
-                       HorizontalTextAlignment="Center"
-                       IsVisible="false"
-                       FontSize="19"
-                       Margin="25"
-                       TextColor="Black"/>
-                
-                <Label x:Name="СategoryLable3"
-                       Text="Выбирите время"
-                       HorizontalTextAlignment="Center"
-                       IsVisible="false"
-                       FontSize="19"
-                       Margin="25"
-                       TextColor="Black"/>
+                <DatePicker x:Name="Picker_Date" IsVisible="false" />
+                <TimePicker x:Name="Picker_Time" IsVisible="false" Format="T"/>
+
+                <Button Clicked="buttonUpdateData_Clicked"
+                        x:Name="buttonUpdateData"
+                        Text="Внести изменения"
+                        TextColor="White"
+                        FontSize="12"
+                        Grid.Column="2"
+                        Margin="15"
+                        Grid.Row="0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="250"
+                        BackgroundColor="red" BorderColor="#A30202"
+                        BorderWidth="3" CornerRadius="30"></Button>
 
             </StackLayout>
         </ScrollView>
 </ContentPage>
-    
-<ContentPage Title="Поддержка" >
+
+    <ContentPage Title="Новости" >
+        <StackLayout>
+            <Label x:Name="titleNews"
+                       Text="Добавьте заголовок:"
+                       HorizontalTextAlignment="Center"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+            
+            <Entry x:Name="nameInputNews"
+                   HorizontalTextAlignment="Center"
+                   WidthRequest="350"
+                   HorizontalOptions="Center"/>
+            
+            <Label x:Name="textNews"
+                       Text="Добавьте основной текст:"
+                       HorizontalTextAlignment="Center"
+                       FontSize="19"
+                       Margin="25,25,25,40"
+                       TextColor="Black"/>
+            
+            <Editor x:Name="InputNewsText"
+                   WidthRequest="350"
+                   HorizontalOptions="Center"/>
+            
+            <Button Clicked="NewsAdd_Clicked"
+                        x:Name="NewsAdd"
+                        Text="Добавить новость"
+                        TextColor="White"
+                        FontSize="12"
+                        Grid.Column="2"
+                        Margin="15"
+                        Grid.Row="0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="250"
+                        BackgroundColor="red" BorderColor="#A30202"
+                        BorderWidth="3" CornerRadius="30"></Button>
+
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Поддержка" >
         <StackLayout>
 
         </StackLayout>

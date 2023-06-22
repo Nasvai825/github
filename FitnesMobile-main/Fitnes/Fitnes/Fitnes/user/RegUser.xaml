@@ -57,6 +57,7 @@
             x:Name="Password" 
             HorizontalTextAlignment="Center" 
             WidthRequest="350" 
+            IsPassword ="True"
             HorizontalOptions="Center"
             Margin="0,-5,0,0"/>
 
@@ -69,6 +70,7 @@
             x:Name="Password2" 
             HorizontalTextAlignment="Center" 
             WidthRequest="350" 
+            IsPassword ="True"
             HorizontalOptions="Center"
             Margin="0,-5,0,0"/>
         

@@ -38,16 +38,71 @@ namespace Fitnes.user
             
             Update_Data();
             LoadData();
+
+            LoadNews();
         }
+
+        private void LoadNews()
+        {
+            News.Children.Clear(); 
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `NameNews`,`TextNews` FROM `news` ", db.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Grid grid = new Grid
+                    {
+                        MinimumHeightRequest = 100,
+                        BackgroundColor = Color.LightGoldenrodYellow,
+                        Margin = new Thickness(15, 10, 15, 0),
+                    };
+
+
+                    Label label = new Label
+                    {
+                        FontSize = 20,
+                        MinimumHeightRequest = 40,
+                        Margin = new Thickness(25, 5, 15, 15),
+                        Text = reader[0].ToString()
+                    };
+                    label.VerticalTextAlignment = TextAlignment.Center;
+                    label.HorizontalTextAlignment = TextAlignment.Start;
+                    label.VerticalOptions = LayoutOptions.Start;
+                    label.FontFamily = "Bolt";
+                    //BoxView box = new BoxView
+                    //{
+                    //    HeightRequest = 4,
+                    //    BackgroundColor = Color.Black,
+                    //    Margin = new Thickness(20, 30, 20, 30),
+                    //};
+
+                    Label label2 = new Label
+                    {
+                        FontSize = 16,
+                        MinimumHeightRequest = 50,
+                        Margin = new Thickness(15, 45, 15, 15),
+                        Text = reader[1].ToString()
+                    };
+                    label2.VerticalTextAlignment = TextAlignment.Center;
+                    label2.HorizontalTextAlignment = TextAlignment.Start;
+                    label2.VerticalOptions = LayoutOptions.End;
+
+                    grid.Children.Add(label);
+                    //grid.Children.Add(box);
+                    grid.Children.Add(label2);
+                    News.Children.Add(grid);
+                }
+            }
+        }
+
         private void Full_Schedule_User(object sender, EventArgs e)
         {
 
-        }
-        private void Sort_Schedule(object sender, EventArgs e)
-        {
-            string sort_Schedule = nameInput5.Text;
-            СategoryLable_User.IsVisible = true;
-            Сategory_User.IsVisible = true;
         }
 
 
@@ -110,43 +165,38 @@ namespace Fitnes.user
         {
             phoneUser.Text = userData[1];
          
-            if (userData[3] == "" && upAbon == false)
+              
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `karta`,`abonement` WHERE  `abonement_idAbonement`=`idAbonement` and `idKarta`=@id", db.getConnection());
+                
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                
+
+            MySqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows) // это строки?
+            {
+                while (reader.Read()) // забираю данные из бд
+                {
+                    dateStart.Text = reader[0].ToString();
+                    dateEnd.Text = reader[1].ToString();
+                    nameAbonement.Text = reader[2].ToString();
+                    levelAbonement.Text = reader[3].ToString();
+                    priceAbonement.Text = reader[4].ToString();
+                }
+            }
+            else
             {
                 nameAbonement.Text = "У вас нет абонемента";
                 dateStart.Text = "-";
                 dateEnd.Text = "-";
                 levelAbonement.Text = "-";
                 priceAbonement.Text = "-";
-               
             }
-            else
-            {
-              
-                DB db = new DB();
-                db.openConnection();
-                MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `karta`,`abonement` WHERE  `abonement_idAbonement`=`idAbonement` and `idKarta`=@id", db.getConnection());
-                
-                command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
-                
-
-                MySqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows) // это строки?
-                {
-                    DisplayAlert("строка есть", "dvvsdvdv", "advasd");
-                    while (reader.Read()) // забираю данные из бд
-                    {
-                        dateStart.Text = reader[0].ToString();
-                        dateEnd.Text = reader[1].ToString();
-                        nameAbonement.Text = reader[2].ToString();
-                        levelAbonement.Text = reader[3].ToString();
-                        priceAbonement.Text = reader[4].ToString();
-                    }
-                }
-                reader.Close();
-                db.closeConnection();
+            reader.Close();
+            db.closeConnection();
                
-            }
         }
 
         
@@ -159,7 +209,7 @@ namespace Fitnes.user
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT uslugi.nameUslugi, raspisanie.Date, raspisanie.Time FROM uslugi JOIN raspisanie ON `idRaspisanie` >= `uslugi_idUslugi`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT idRaspisanie, Date, Time,nameUslugi FROM raspisanie,uslugi WHERE uslugi_idUslugi=idUslugi", db.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)

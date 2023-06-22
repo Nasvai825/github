@@ -5,9 +5,14 @@
             NavigationPage.HasNavigationBar="False">
 
     <ContentPage Title="Главная" >
-        <StackLayout>
-
+      
+      <ScrollView HeightRequest="400" Margin="0,20,0,0">
+        
+        <StackLayout x:Name="News">
         </StackLayout>
+        
+      </ScrollView>
+      
     </ContentPage>
 
     <ContentPage Title="Расписание">
@@ -15,42 +20,10 @@
             <StackLayout x:Name="NameColumn">
         </StackLayout>
 
-        <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
-            <StackLayout x:Name="callView">
-            </StackLayout>
-        </ScrollView>
-            
-            <Grid Margin="0,20,0,0"  HeightRequest="200">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-
-                </Grid.RowDefinitions>
-
-       
-
-                <Button Clicked="Sort_Schedule"
-                        Text="Поиск"
-                        TextColor="White"
-                        FontSize="12"
-                        Grid.Column="1"
-                        Grid.Row="0"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"
-                        WidthRequest="120"
-                        BackgroundColor="red" BorderColor="#A30202"
-                        BorderWidth="3" CornerRadius="30"></Button>
-            </Grid>
-
-            <Label x:Name="СategoryLable_User"
-                   Text="Выбирите категорию услуг?"
-                   IsVisible="false"
-                   FontSize="19"
-                   Margin="15,7,15,20"
-                   TextColor="Black"/>
+            <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
+                <StackLayout x:Name="callView">
+                </StackLayout>
+            </ScrollView>
 
             <Picker x:Name="Сategory_User" IsVisible="false"/>
             <Entry x:Name="nameInput5" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center" IsVisible="false"/>

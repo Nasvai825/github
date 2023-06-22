@@ -45,17 +45,19 @@ namespace Fitnes.admin
             DisplayAlert("Ок", "Чето там заработало", "ок");
         }
 
-        private void Update_Schedule(object sender, EventArgs e)
-        {
-            string updateCategory = nameInput3.Text;
-            СategoryLable.IsVisible = true;
-            Сategory.IsVisible = true;
-            
-
-        }
         private void Insert_Schedule(object sender, EventArgs e)
         {
             
+        }
+        private void NewsAdd_Clicked(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `news`(`idNews`, `NameNews`, `TextNews`) VALUES (default,@nameNews,@textNews)", db.getConnection());
+            command.Parameters.Add("@nameNews", MySqlDbType.VarChar).Value = nameInputNews.Text.ToString();
+            command.Parameters.Add("@textNews", MySqlDbType.VarChar).Value = InputNewsText.Text.ToString();
+            command.ExecuteNonQuery();
+            DisplayAlert("Отлично", "Вы успешно добавили новость", "ок");
         }
 
         private void InsertDataInPicker()
@@ -75,20 +77,42 @@ namespace Fitnes.admin
             }
             db.closeConnection();
         }
-        private void InsertDataInPickerSchedule()
+        private void buttonUpdateData_Clicked(object sender, EventArgs e)
         {
-
-            Picker_idUslugi.Items.Clear();
+            int q = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT `idKlient` FROM `klient` ", db.getConnection());
+            MySqlCommand command = new MySqlCommand("UPDATE raspisanie SET Time=@Time, Date =@Date WHERE idRaspisanie=@idRasp", db.getConnection());
+            command.Parameters.Add("@Time", MySqlDbType.Time).Value = Picker_Time.Time;
+            command.Parameters.Add("@Date", MySqlDbType.Date).Value = Picker_Date.Date;
+            command.Parameters.Add("@idRasp", MySqlDbType.Int32).Value = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
+            //Specified cast is not valid.command.ExecuteNonQuery();
+            command.ExecuteNonQuery();
+            LoadDataInTableSchedule();
+            DisplayAlert("Отлично", "Время изменено", "ок");
+        }
+
+        private void InsertDataInPickerSchedule(object sender, EventArgs e)
+        {
+
+            СategoryLable.IsVisible = true;
+            Picker_idRaspisanie.IsVisible = true;
+            buttonUpdateData.IsVisible = true;
+            Picker_Date.IsVisible = true;
+            Picker_Time.IsVisible = true; 
+
+            Picker_idRaspisanie.Items.Clear();
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `idRaspisanie` FROM `raspisanie` ", db.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    Picker_idKarta.Items.Add(reader[0].ToString());
+                    Picker_idRaspisanie.Items.Add(reader[0].ToString());
                 }
             }
             db.closeConnection();
@@ -106,7 +130,7 @@ namespace Fitnes.admin
 
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT uslugi.nameUslugi, raspisanie.Date, raspisanie.Time FROM uslugi JOIN raspisanie ON `idRaspisanie` >= `uslugi_idUslugi`", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT idRaspisanie, Date, Time,nameUslugi FROM raspisanie,uslugi WHERE uslugi_idUslugi=idUslugi", db.getConnection());
             MySqlDataReader reader = command.ExecuteReader();
 
             if (reader.HasRows)
