@@ -81,6 +81,7 @@
                         BorderWidth="3" CornerRadius="30"></Button>
 
                 <Picker x:Name="Picker_idRaspisanie" IsVisible="false" HorizontalTextAlignment="Center"/>
+                <Picker x:Name="Picker_idUslugi" IsVisible="false" HorizontalTextAlignment="Center"/>
                 <Label x:Name="СategoryLable"
                        Text="Какую категорию услуг вы хотите изменить?"
                        HorizontalTextAlignment="Center"
@@ -94,6 +95,7 @@
                 <Button Clicked="buttonUpdateData_Clicked"
                         x:Name="buttonUpdateData"
                         Text="Внести изменения"
+                        IsVisible="false"
                         TextColor="White"
                         FontSize="12"
                         Grid.Column="2"

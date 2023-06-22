@@ -27,6 +27,30 @@ namespace Fitnes.admin
             LoadDataInTableClient();
 
             InsertDataInPicker();
+            Picker_idUslugiInsert();
+        }
+
+        private void Picker_idUslugiInsert()
+        {
+            Picker_idUslugi.IsVisible = true;
+            Picker_Date.IsVisible = true;
+            Picker_Time.IsVisible = true;
+            Picker_idUslugi.Items.Clear();
+
+
+            DB db = new DB();
+            db.openConnection();
+            MySqlCommand command = new MySqlCommand("SELECT `idUslugi`,`nameUslugi` FROM `uslugi` ", db.getConnection());
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    string usluga = reader[0].ToString() + "   " + reader[1].ToString();
+                    Picker_idUslugi.Items.Add(usluga);
+                }
+            }
+            db.closeConnection();
         }
 
         private void buttonVisits_Clicked(object sender, EventArgs e) 
@@ -77,22 +101,35 @@ namespace Fitnes.admin
             }
             db.closeConnection();
         }
-        private void buttonUpdateData_Clicked(object sender, EventArgs e)
+        private void buttonInsertData_Clicked(object sender, EventArgs e)
         {
-            int q = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
-
+            buttonUpdateData.IsVisible = true;
+           
+            
+            string idusl = "";
+            string usluga = Picker_idUslugi.SelectedItem.ToString();
+            for (int i = 0; i < 3; i++)
+            {
+                if (usluga[i].ToString() == " ")
+                {
+                    break;
+                }
+                else
+                    idusl += usluga[i].ToString();
+            }
+            
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("UPDATE raspisanie SET Time=@Time, Date =@Date WHERE idRaspisanie=@idRasp", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `raspisanie`(`idRaspisanie`, `Date`, `Time`,`uslugi_idUslugi`) VALUES (default, @Date, @Time, @iduslugi)  ", db.getConnection());
             command.Parameters.Add("@Time", MySqlDbType.Time).Value = Picker_Time.Time;
             command.Parameters.Add("@Date", MySqlDbType.Date).Value = Picker_Date.Date;
-            command.Parameters.Add("@idRasp", MySqlDbType.Int32).Value = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
+            command.Parameters.Add("@iduslugi", MySqlDbType.Int32).Value = Convert.ToInt32(idusl);
             //Specified cast is not valid.command.ExecuteNonQuery();
             command.ExecuteNonQuery();
             LoadDataInTableSchedule();
-            DisplayAlert("Отлично", "Запись добавлена", "Ок");
+            DisplayAlert("Отлично", "Вы добавили новый ", "Ок");
         }
-        private void buttonInsertData_Clicked(object sender, EventArgs e)
+        private void buttonUpdateData_Clicked(object sender, EventArgs e)
         {
             int q = Convert.ToInt32(Picker_idRaspisanie.SelectedItem);
 

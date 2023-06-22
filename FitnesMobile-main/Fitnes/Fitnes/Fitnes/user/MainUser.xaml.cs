@@ -168,9 +168,9 @@ namespace Fitnes.user
               
             DB db = new DB();
             db.openConnection();
-            MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `klient`,`karta`,`abonement` WHERE  `abonement_idAbonement`=`idAbonement` and `karta_idKarta`=`idKarta` and `idKarta`=@id", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT `start`,`end`,`nameAbonement`,`abonementLevel`,`abonementPrice` FROM `klient`,`karta`,`abonement` WHERE  `abonement_idAbonement`=`idAbonement` and `karta_idKarta`=`idKarta` and `idKlient`=@idklient", db.getConnection());
                 
-            command.Parameters.Add("@id", MySqlDbType.Int32).Value = Convert.ToInt32(userData[0]);
+            command.Parameters.Add("@idklient", MySqlDbType.Int32).Value = Convert.ToInt32(userData[0]);
                 
 
             MySqlDataReader reader = command.ExecuteReader();
