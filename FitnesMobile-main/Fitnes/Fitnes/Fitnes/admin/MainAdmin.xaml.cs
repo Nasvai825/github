@@ -22,7 +22,7 @@ namespace Fitnes.admin
 
             post = post2;
             labelPost.Text = post;
-
+            
             Сategory.Items.Add("Массаж");
             Сategory.Items.Add("Солярий");
             Сategory.Items.Add("Персональная тренеровка");
@@ -33,8 +33,6 @@ namespace Fitnes.admin
             LoadDataInTableClient();
 
             InsertDataInPicker();
-
-
         }
 
         private void buttonVisits_Clicked(object sender, EventArgs e) 
@@ -123,7 +121,7 @@ namespace Fitnes.admin
                     {
                         FontSize = 12,
                         Text = textcall2,
-                        Margin = new Thickness(0, 4, 0, 0),
+                       
                     };
                     label2.VerticalTextAlignment = TextAlignment.Center;
                     label2.HorizontalTextAlignment = TextAlignment.Center;
@@ -134,6 +132,7 @@ namespace Fitnes.admin
                 BoxView box2 = new BoxView
                 {
                     HeightRequest = 4,
+                    Margin = new Thickness(0, -7, 0, 0),
                 };
                 box2.BackgroundColor = Color.Black;
 
@@ -181,7 +180,8 @@ namespace Fitnes.admin
                     BoxView box = new BoxView
                     {
                         Margin = -5,
-                        HeightRequest = 2
+                        HeightRequest = 2,
+                        
                     };
                     box.BackgroundColor = Color.Black;
 
@@ -247,7 +247,7 @@ namespace Fitnes.admin
                 }
                 BoxView box2 = new BoxView
                 {
-                    Margin = new Thickness(0, 3, 0, 0),
+                    Margin = new Thickness(0, -7, 0, 0),
                     HeightRequest = 4,
                 };
                 box2.BackgroundColor = Color.Black;

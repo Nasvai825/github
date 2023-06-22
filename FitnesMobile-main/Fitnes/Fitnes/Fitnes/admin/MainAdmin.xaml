@@ -44,29 +44,15 @@
     </ContentPage>
 
 <ContentPage Title="Расписание" >
-        <StackLayout>
-
-
-            <StackLayout x:Name="NameColumn2">
-            </StackLayout>
-
-            <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
-                <StackLayout x:Name="callView2">
+        <ScrollView>
+            <StackLayout>
+                
+                <StackLayout x:Name="NameColumn2">
                 </StackLayout>
-            </ScrollView>
-
-           
-                <Grid Margin="0,20,0,0"  HeightRequest="200">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-
-                </Grid.RowDefinitions>
+                <ScrollView HeightRequest="300" BackgroundColor="DarkGray" Margin="0,-7,0,0">
+                    <StackLayout x:Name="callView2">
+                    </StackLayout>
+                </ScrollView>
 
                 <Button Clicked="Update_Schedule"
                         Text="Изменить"
@@ -80,8 +66,7 @@
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
 
-
-                    <Button Clicked="Insert_Schedule"
+                <Button Clicked="Insert_Schedule"
                         Text="Добавить"
                         TextColor="White"
                         FontSize="12"
@@ -92,7 +77,6 @@
                         WidthRequest="120"
                         BackgroundColor="red" BorderColor="#A30202"
                         BorderWidth="3" CornerRadius="30"></Button>
-                </Grid>
 
                 <Label x:Name="СategoryLable"
                    Text="Какую категорию услуг вы хотите изменить?"
@@ -100,12 +84,12 @@
                    FontSize="19"
                    Margin="15,7"
                    TextColor="Black"/>
-                
+
                 <Picker x:Name="Сategory" IsVisible="false"/>
                 <Entry x:Name="nameInput3" HorizontalTextAlignment="Center" WidthRequest="350" HorizontalOptions="Center" IsVisible="false"/>
-            
-        </StackLayout>
-        
+
+            </StackLayout>
+        </ScrollView>
 </ContentPage>
     
 <ContentPage Title="Поддержка" >
